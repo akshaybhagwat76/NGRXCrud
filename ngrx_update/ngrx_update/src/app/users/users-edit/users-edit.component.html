@@ -1,0 +1,66 @@
+<div *ngIf="users">
+    <div class="container">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+            <i class="fa fa-user" style="font-size: large; color: whitesmoke;"></i>
+            <div class="lh-100">
+              <h6 class="mb-0 text-white lh-100">{{title}}</h6>     
+            </div>
+          </div>
+          <div class="my-3 p-3 bg-white rounded box-shadow">
+            <form #frmUsers="ngForm"  id="frmUsers" novalidate (ngSubmit)="onSaveUser()" novalidate>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label class="control-label col-sm-3" for="txtFName">First Name</label>
+                    </div>        
+                    <div class="col-sm-6">
+                      <input id="txtFName"
+                             type="text"
+                             class="form-control"                 
+                             title="First Name"
+                             [(ngModel)]="users.firstname"
+                             placeholder="Enter a First Name." [ngModelOptions]="{standalone: true}"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                        <label class="control-label col-sm-3" for="txtLName">Last Name</label>
+                    </div>        
+                    <div class="col-sm-6">
+                      <input id="txtLName"
+                             type="text"
+                             class="form-control"                 
+                             title="Last Name"
+                             [(ngModel)]="users.lastname"
+                             placeholder="Enter a Last Name." [ngModelOptions]="{standalone: true}"
+                      /> 
+                    </div>
+                  </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label col-sm-3" for="txtUsername">Username</label>
+                        </div>        
+                        <div class="col-sm-6">
+                          <input id="txtUsername"
+                                 type="text"
+                                 class="form-control"                 
+                                 title="Username"
+                                 [(ngModel)]="users.username"
+                                 placeholder="Enter the Username." [ngModelOptions]="{standalone: true}"
+                          />
+                        </div>
+                      </div>                 
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" (click)="onBack()" class="btn btn-secondary">
+                        <i class="fa fa-arrow-left"></i> Back
+                      </button>
+                      <button type="button" (click)="delete(users.id)" class="btn btn-danger">
+                        <i class="fa fa-times"></i> Delete
+                      </button>
+                  </div>
+            </form>          
+    </div>
+    </div>
+          
+ </div> 
